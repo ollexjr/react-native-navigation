@@ -143,6 +143,10 @@ public class SideMenuController extends ParentController<SideMenuRoot> implement
             prevLeftSlideOffset = slideOffset;
         } else if (gravity == Gravity.RIGHT) {
             dispatchSideMenuVisibilityEvents(right, prevRightSlideOffset, slideOffset);
+
+            float slideX = right.getView().getWidth() * -slideOffset;
+            center.getView().setTranslationX(slideX);
+            
             prevRightSlideOffset = slideOffset;
         }
     }
